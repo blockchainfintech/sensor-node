@@ -5,3 +5,6 @@ sensor-node.out: main.go count/count.go
 
 run:
 	./sensor-node.out
+
+config:
+	./devconfig.sh
