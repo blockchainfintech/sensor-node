@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"strconv"
 	"bytes"
+	"os"
 )
 
 func main() {
@@ -20,12 +21,12 @@ func main() {
 
 		// Create object
 		o := make(map[string]string)
-		o["node_id"] = "5d25c88d-62e0-4198-bb53-ed8d16035966" // TODO use env var
+		o["node_id"] = os.Getenv("NODE_ID")
 		o["count"]   = strconv.Itoa(c) // TODO should be numeric not string in serialised json
 		o["time"]    = t.Format(time.RFC3339)
 
 		// POST thingo
-		url := "http://localhost:4590/push_congestion" // TODO use env var
+		url := os.Getenv("BACKEND_URL")
 		st, _ := json.Marshal(o)
 		fmt.Printf("JSON to send: %v\n", string(st))
 
