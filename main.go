@@ -32,7 +32,7 @@ func main() {
 
 		http.Post(url, "application/json", bytes.NewReader(st))
 
-		// Wait 60 minutes
+		// Wait 60 seconds
 		time.Sleep(60 * time.Second)
 	}
 }
